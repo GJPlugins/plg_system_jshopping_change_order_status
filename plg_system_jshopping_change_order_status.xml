@@ -14,15 +14,17 @@
 	<scriptfile></scriptfile>
 
 	<!-- Language files -->
-	<languages folder="language">
+	<!--<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.plg_system_plg_system_jshopping_change_order_status.ini</language>
 		<language tag="en-GB">en-GB/en-GB.plg_system_plg_system_jshopping_change_order_status.sys.ini</language>
-	</languages>
+	</languages>-->
 
 	<!-- Plugin files -->
 	<files>
-		<filename plugin="plg_system_jshopping_change_order_status">plg_system_jshopping_change_order_status.php</filename>
 		<folder>language</folder>
+		<filename plugin="plg_system_jshopping_change_order_status">plg_system_jshopping_change_order_status.php</filename>
+		<filename>README.md</filename>
+
 	</files>
 
 	<!-- Config parameter -->
@@ -42,6 +44,6 @@
 
 	<!-- Update servers -->
 	<updateservers>
-		<server type="extension" priority="1" name="plg_system_jshopping_change_order_status">https://www.example.com/plg_plg_system_jshopping_change_order_status.xml</server>
+		<server type="extension" priority="1" name="plg_system_jshopping_change_order_status">https://raw.githubusercontent.com/GJPlugins/plg_system_jshopping_change_order_status/main/update.xml</server>
 	</updateservers>
 </extension>
