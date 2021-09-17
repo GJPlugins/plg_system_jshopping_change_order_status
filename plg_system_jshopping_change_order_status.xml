@@ -7,7 +7,7 @@
 	<authorUrl>http://your.url.com</authorUrl>
 	<copyright>A copyright</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>1.0</version>
+	<version>1.1</version>
 	<description>PLG_SYSTEM_PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_XML_DESCRIPTION</description>
 
 	<!-- Scripts to run on installation -->
@@ -21,6 +21,8 @@
 
 	<!-- Plugin files -->
 	<files>
+		<folder>assets</folder>
+		<folder>elements</folder>
 		<folder>language</folder>
 		<filename plugin="plg_system_jshopping_change_order_status">plg_system_jshopping_change_order_status.php</filename>
 		<filename>README.md</filename>
@@ -30,14 +32,137 @@
 	<!-- Config parameter -->
 	<config>
 		<fields name="params">
+			<fieldset addfieldpath="/libraries/GNZ11/Extensions/Fields" />
+			<fieldset addfieldpath="/libraries/GNZ11/Extensions/Fields/jshopping" />
+
 			<fieldset name="basic">
-				<field
-					name="sample"
+
+				<field name="interval_upd"
 					type="text"
-					default="42"
-					label="PLG_SYSTEM_PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_SAMPLE_LABEL"
-					description="PLG_SYSTEM_PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_SAMPLE_DESCRIPTION"
-				/>
+					default="60"
+					class="interval_upd "
+					size="20"
+					readonly=""
+					required=""
+					label="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_INTERVAL_UPD"
+					description="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_INTERVAL_UPD_DESC"
+					showon=""
+					hint=""
+					filter="raw" />
+
+
+				<!-- Время последнего обновления -->
+				<field name="last_update_time"
+					type="text"
+					default="2021-09-16 00:00:00"
+					class="last_update_time span6"
+					size="20"
+					readonly="1"
+					required=""
+					label="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_LAST_UPDATE_TIME"
+					description="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_LAST_UPDATE_TIME_DESC"
+					showon=""
+					hint=""
+					filter="raw" />
+
+
+
+
+
+
+				<!-- Статус заказа неа который сменять JoomShoping  order status -->
+				<field name="order_status_new"
+					type="listjsorderstatus"
+					default="3"
+					required=""
+					label="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_ORDER_STATUS_NEW"
+					description="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_ORDER_STATUS_NEW_DESC"
+					class="order_status_new "
+					multiple="0"
+					readonly=""
+					showon=""
+					filter="raw" />
+
+
+				<!-- Время жизни заказа до изменения статуса -->
+				<field name="order_live_time"
+					   type="text"
+					   default=""
+					   class="order_live_time "
+					   size="20"
+					   readonly=""
+					   required=""
+					   label="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_ORDER_LIVE_TIME"
+					   description="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_ORDER_LIVE_TIME_DESC"
+					   showon=""
+					   hint=""
+					   filter="raw" />
+
+				<!-- Уведомлять покупателя -->
+				<field name="customer_notify_status_new"
+					type="radio"
+					default="1"
+					readonly="0"
+					label="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_CUSTOMER_NOTIFY_STATUS_NEW"
+					description="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_CUSTOMER_NOTIFY_STATUS_NEW_DESC"
+					class="btn-group btn-group-yesno"
+					showon="" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<!-- Комментарий к статусу заказа-->
+				<field name="customer_notify_comments"
+					type="textarea"
+					default="Changed automatically plugin"
+					class="customer_notify_comments "
+					rows="5"
+					cols="4"
+					readonly=""
+					required=""
+					label="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_CUSTOMER_NOTIFY_COMMENTS"
+					description="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_CUSTOMER_NOTIFY_COMMENTS_DESC"
+					showon=""
+					hint=""
+					filter="raw" />
+
+				<field name="include_notify_comments"
+					type="radio"
+					default="0"
+					readonly="0"
+					label="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_INCLUDE_NOTIFY_COMMENTS"
+					description="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_INCLUDE_NOTIFY_COMMENTS_DESC"
+					class="btn-group btn-group-yesno"
+					showon=""
+
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+
+
+
+
+
+				<field name="__v"
+					type="version"
+					path_xml="/plugins/system/plg_system_jshopping_change_order_status/plg_system_jshopping_change_order_status.xml"
+					class="__v"
+					filter="raw" />
+				<field name="debug_on"
+					type="radio"
+					default="0"
+					label="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_DEBUG_ON"
+					description="PLG_SYSTEM_JSHOPPING_CHANGE_ORDER_STATUS_DEBUG_ON_DESC"
+					class="btn-group btn-group-yesno"
+					showon=""
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+
 			</fieldset>
 		</fields>
 	</config>
